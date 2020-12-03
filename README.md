@@ -26,6 +26,5 @@ A basic event manager with encryption using libsodium.
 # Setup Commands:
 ```
 rails new encrypt-events -d=postresql --webpack=react
-yarn add sodium
-yarn global add mocha mocha-istanbul codecov
+yarn install
 ```
