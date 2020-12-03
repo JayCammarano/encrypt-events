@@ -1,0 +1,23 @@
+{
+  "name": "encrypt-events",
+  "private": true,
+  "dependencies": {
+    "@babel/preset-react": "^7.12.7",
+    "@rails/webpacker": "5.2.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "codecov": "^3.8.1",
+    "global": "^4.4.0",
+    "mocha": "^8.2.1",
+    "mocha-istanbul": "^0.3.0",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sodium": "^3.0.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "test": "nyc mocha --timeout=3000 && codecov"
+  }
+}
