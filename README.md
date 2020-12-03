@@ -1,24 +1,31 @@
-# README
+##
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A basic event manager with encryption using libsodium.
 
-Things you may want to cover:
+# Technologies used:
 
-* Ruby version
+*Encryption:*  
 
-* System dependencies
+ - libsodium / node-sodium
+ - Backend is possible with RbNaCl
+*Frontend: *
 
-* Configuration
+- JS/React
+- Tailwind or Bulma or I suppose Foundation again not picky
+*Backend: *
 
-* Database creation
+- Rails
+- PostgreSQL
 
-* Database initialization
+*Testing (Testing? LMAO):*
 
-* How to run the test suite
+- Mocha/Mocha-Instabul for code coverage
+- Rspec
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+# Setup Commands:
+```
+rails new encrypt-events -d=postresql --webpack=react
+yarn add sodium
+ yarn global add mocha mocha-istanbul codecov
+```
