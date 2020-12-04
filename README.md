@@ -5,20 +5,21 @@ A basic event manager with encryption using libsodium.
 
 # Technologies used:
 
-*Encryption:*  
+**Encryption:**
 
  - libsodium / node-sodium
 
-*Frontend: *
+**Frontend: **
 
 - JS/React
-- Tailwind or Bulma or I suppose Foundation again not picky
-*Backend: *
+- Tailwind
+
+**Backend: **
 
 - Rails
 - PostgreSQL
 
-*Testing (Testing? LMAO):*
+**Testing (Testing? LMAO):**
 
 - Mocha/Mocha-Instabul for code coverage
 - Rspec
