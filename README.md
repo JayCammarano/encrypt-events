@@ -9,12 +9,12 @@ A basic event manager with encryption using libsodium.
 
  - libsodium / node-sodium
 
-**Frontend: **
+**Frontend:**
 
 - JS/React
 - Tailwind
 
-**Backend: **
+**Backend**
 
 - Rails
 - PostgreSQL
