@@ -7,7 +7,7 @@ A basic event manager with encryption using libsodium.
 *Encryption:*  
 
  - libsodium / node-sodium
- - Backend is possible with RbNaCl
+
 *Frontend: *
 
 - JS/React
