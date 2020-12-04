@@ -25,6 +25,6 @@ A basic event manager with encryption using libsodium.
 
 # Setup Commands:
 ```
-rails new encrypt-events -d=postresql --webpack=react
+bundle install
 yarn install
 ```
