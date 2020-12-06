@@ -1,0 +1,17 @@
+codecov:
+  token: f5b41dfb-dc2b-4553-8488-dc7f067d2006
+coverage:
+  round: up
+  range: 0..10
+  status:
+    project:
+      default:
+        # basic
+        target: 80%
+        threshold: 0%
+        flags:
+          - unit
+        # advanced settings
+        if_ci_failed: error #success, failure, error, ignore
+        informational: true
+        only_pulls: true
