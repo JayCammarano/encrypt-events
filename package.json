@@ -32,6 +32,7 @@
   },
   "scripts": {
     "test": "nyc mocha --timeout=3000 && codecov",
+    "test:unit": "nyc mocha --require @babel/register 'src/**/*.spec.js' --timeout=3000 && codecov",
     "start": "./bin/webpack-dev-server"
   }
 }
