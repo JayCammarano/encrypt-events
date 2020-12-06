@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-
+  get "/login", to: 'homepage#index'
+  get "/signup", to: 'homepage#index'
+  
   root 'homepage#index'
   namespace :api do
     namespace :v1 do
