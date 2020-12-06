@@ -10,9 +10,9 @@ const LoginPage = ({ s }) => {
   }
 
   return (
-    <section>
-      Hello World
-      {display}
+    <section className="flex flex-col">
+      <div className="content-end w-1/2">Hello World</div>
+      <div className="content-end w-1/2 bg-white">{display}</div>
     </section>
   );
 };
