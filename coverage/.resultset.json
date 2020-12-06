@@ -313,7 +313,7 @@
           null,
           null,
           1,
-          0,
+          1,
           null,
           null,
           1,
@@ -321,11 +321,11 @@
           null,
           null,
           1,
-          0,
+          1,
           null,
           null,
           1,
-          0,
+          1,
           null,
           null
         ]
@@ -372,6 +372,30 @@
       "/Users/spaghettios/Documents/GitHub/encrypt-events/app/controllers/api/v1/users_controller.rb": {
         "lines": [
           1,
+          null
+        ]
+      },
+      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/controllers/homepage_controller_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/spaghettios/Documents/GitHub/encrypt-events/app/controllers/homepage_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -562,6 +586,6 @@
         ]
       }
     },
-    "timestamp": 1607266229
+    "timestamp": 1607266597
   }
 }
