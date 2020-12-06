@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Events from "./Views/Events";
 import Inbox from "./Views/Inbox";
 import My_Events from "./Views/My_Events";
@@ -21,10 +21,10 @@ const ViewWindow = ({ whichTab }) => {
   }
 
   return (
-    <div className="w-1/2">
+    <>
       View Window
       {display}
-    </div>
+    </>
   );
 };
 
