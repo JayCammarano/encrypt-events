@@ -34,4 +34,4 @@ yarn-debug.log*
 .yarn-integrity
 .env
 .nyc_output
-app/javascript/testing/
+app/javascript/test/
