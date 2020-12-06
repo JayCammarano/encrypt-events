@@ -333,24 +333,6 @@
           null
         ]
       },
-      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/factories/events.rb": {
-        "lines": [
-
-        ]
-      },
-      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/factories/users.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
       "/Users/spaghettios/Documents/GitHub/encrypt-events/app/controllers/api/v1/events_controller.rb": {
         "lines": [
           1,
@@ -363,7 +345,7 @@
           null
         ]
       },
-      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/controllers/api/v1/users_controller_spec.rb": {
+      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/Ruby/controllers/api/v1/users_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -420,7 +402,7 @@
           null
         ]
       },
-      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/controllers/homepage_controller_spec.rb": {
+      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/Ruby/controllers/homepage_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -444,7 +426,7 @@
           null
         ]
       },
-      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/features/user_signs_in_spec.rb": {
+      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/Ruby/features/user_signs_in_spec.rb": {
         "lines": [
           null,
           null,
@@ -477,47 +459,8 @@
           null
         ]
       },
-      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/features/user_signs_out_spec.rb": {
+      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/Ruby/features/user_signs_out_spec.rb": {
         "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/features/user_signs_up_spec.rb": {
-        "lines": [
-          null,
-          null,
           null,
           null,
           null,
@@ -553,7 +496,46 @@
           null
         ]
       },
-      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/helpers/events_helper_spec.rb": {
+      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/Ruby/features/user_signs_up_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/Ruby/helpers/events_helper_spec.rb": {
         "lines": [
           1,
           null,
@@ -572,7 +554,7 @@
           null
         ]
       },
-      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/helpers/users_helper_spec.rb": {
+      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/Ruby/helpers/users_helper_spec.rb": {
         "lines": [
           1,
           1,
@@ -582,7 +564,7 @@
           null
         ]
       },
-      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/models/event_spec.rb": {
+      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/Ruby/models/event_spec.rb": {
         "lines": [
           1,
           null,
@@ -608,7 +590,7 @@
           null
         ]
       },
-      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/models/user_spec.rb": {
+      "/Users/spaghettios/Documents/GitHub/encrypt-events/spec/Ruby/models/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -631,6 +613,6 @@
         ]
       }
     },
-    "timestamp": 1607285885
+    "timestamp": 1607298353
   }
 }
