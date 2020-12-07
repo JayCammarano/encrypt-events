@@ -5,5 +5,7 @@ FactoryBot.define do
     username {"testuser"}
     password { 'password' }
     password_confirmation { 'password' }
+    public_key { "testkey"}
+    private_key { "testprivkey" }
   end
 end

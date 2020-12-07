@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   root 'homepage#index'
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:index, :register, :new, :show, :update, :destroy] do
-        post 'register'
+      resources :users, only: [:create, :new, :update, :destroy, :login, :logout, :logged_in] do
+        post 'login', :on => :collection
+        delete 'logout', :on => :collection
+        get 'logged_in', :on => :collection
         resources :events, only: [:show, :create, :new, :update, :destroy]
       end
     end
