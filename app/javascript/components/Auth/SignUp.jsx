@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
+import { newUser } from "../../_helpers/fetch";
+import ResponseDisplay from "../../_helpers/ResponseDisplay";
 
 const SignUp = () => {
   const [input, setInput] = useState({
@@ -6,7 +9,22 @@ const SignUp = () => {
     password: "",
     password_confirmation: "",
   });
-  // fetch to api endpoint for sign up "api/v1/signup"
+  const [response, setResponse] = useState({});
+
+  const onSubmitHandler = () => {
+    newUser(input, setResponse);
+  };
+
+  let displayResponse;
+  useEffect(() => {
+    if (Object.keys(response).includes("error")) {
+      responseMessage = `Error! ${response.error}`;
+      displayResponse = <ResponseDisplay responseMessage={responseMessage} />;
+    } else if (Object.keys(response).includes("user")) {
+      <Redirect to="/user_profile" />;
+    }
+  }, [response]);
+
   const onHandleChange = (e) => {
     setInput({ ...input, [e.currentTarget.id]: e.currentTarget.value });
   };
@@ -15,8 +33,7 @@ const SignUp = () => {
       <h1 className="mb-4 text-3xl font-medium leading-tight text-gray-900 title-font sm:text-4xl">
         Sign Up
       </h1>
-
-      <form>
+      <form onSubmit={onSubmitHandler}>
         <div>
           <label htmlFor="Username">
             <input
@@ -49,7 +66,7 @@ const SignUp = () => {
               onChange={onHandleChange}
               placeholder="Password Confirmation"
               type="password"
-              value={input.password}
+              value={input.password_confirmation}
             />
           </label>
         </div>

@@ -9,6 +9,7 @@
     "@babel/register": "^7.12.1",
     "@rails/webpacker": "5.2.1",
     "autoprefixer": "^9",
+    "axios": "^0.21.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "codecov": "^3.8.1",
     "global": "^4.4.0",

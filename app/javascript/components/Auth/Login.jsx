@@ -5,7 +5,7 @@ const Login = () => {
     username: "",
     password: "",
   });
-  // fetch to api endpoint for sign up "api/v1/signup"
+
   const onHandleChange = (e) => {
     setInput({ ...input, [e.currentTarget.id]: e.currentTarget.value });
   };
