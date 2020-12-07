@@ -13,12 +13,6 @@ const SideNav = ({ whichTab, setWhichTab }) => {
       <div className="w-1/2 px-4 py-6" onClick={() => tabSetter("inbox")}>
         Inbox
       </div>
-      <div className="w-1/2 px-4 py-6" onClick={() => tabSetter("saved")}>
-        Saved
-      </div>
-      <div className="w-1/2 px-4 py-6" onClick={() => tabSetter("my_events")}>
-        My Events
-      </div>
       <div
         className="w-1/2 px-4 py-6 border-0"
         onClick={() => tabSetter("settings")}

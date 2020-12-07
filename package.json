@@ -29,6 +29,8 @@
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.7",
     "chai": "^4.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "mocha": "^8.2.1",
     "nyc": "^15.1.0",
     "postcss-cli": "^8.3.0",
@@ -37,7 +39,7 @@
   },
   "scripts": {
     "test": "nyc mocha --timeout=3000 && codecov",
-    "test:unit": "nyc mocha --require @babel/register --require 'spec/JavaScript/dom.js' --require 'spec/JavaScript/test_helper.js' 'src/**/*.spec.js' --timeout=3000 && codecov",
+    "test:unit": "nyc mocha --require @babel/register --require 'spec/JavaScript/dom.js' --require 'spec/JavaScript/test_helper.js' 'app/**/*.spec.js' --timeout=3000 && codecov",
     "start": "./bin/webpack-dev-server"
   }
 }
