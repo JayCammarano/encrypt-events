@@ -8,21 +8,35 @@
     "@babel/preset-react": "^7.12.7",
     "@babel/register": "^7.12.1",
     "@rails/webpacker": "5.2.1",
+    "@stablelib/base64": "^1.0.0",
+    "@stablelib/utf8": "^1.0.0",
     "autoprefixer": "^9",
+    "axios": "^0.21.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "codecov": "^3.8.1",
     "global": "^4.4.0",
     "jsdom": "^16.4.0",
+    "libsodium-wrappers": "^0.7.8",
     "mocha-istanbul": "^0.3.0",
+    "moment-timezone": "^0.5.32",
     "postcss": "^7",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
+    "react-datetime": "^3.0.4",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "sodium": "^3.0.2",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "react-scroll": "^1.8.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "tweetnacl": "^1.0.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
+    "chai": "^4.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "mocha": "^8.2.1",
     "nyc": "^15.1.0",
     "postcss-cli": "^8.3.0",
@@ -31,6 +45,7 @@
   },
   "scripts": {
     "test": "nyc mocha --timeout=3000 && codecov",
+    "test:unit": "nyc mocha --require @babel/register --require 'spec/JavaScript/dom.js' --require 'spec/JavaScript/test_helper.js' 'app/**/*.spec.js' --timeout=3000 && codecov",
     "start": "./bin/webpack-dev-server"
   }
 }

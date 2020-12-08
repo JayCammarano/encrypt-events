@@ -1,5 +1,5 @@
 codecov:
-  token: f5b41dfb-dc2b-4553-8488-dc7f067d2006
+  token: ENV[CODECOVE_TOKEN]
 coverage:
   round: up
   range: 0..10
