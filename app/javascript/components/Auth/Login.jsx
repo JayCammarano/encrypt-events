@@ -1,19 +1,27 @@
 import React, { useState } from "react";
-
 const Login = () => {
   const [input, setInput] = useState({
     username: "",
     password: "",
   });
-  // fetch to api endpoint for sign up "api/v1/signup"
+
   const onHandleChange = (e) => {
     setInput({ ...input, [e.currentTarget.id]: e.currentTarget.value });
   };
+
+  let displayResponse;
+  if (Object.keys(response).includes("error")) {
+    displayResponse = response.error.map((error) => `${error}. `);
+  } else if (response.status === "created") {
+    console.log("test");
+  }
   return (
     <div>
       <h1 className="mb-4 text-3xl font-medium leading-tight text-gray-900 title-font sm:text-4xl">
         Login
       </h1>
+
+      {displayResponse}
       <form>
         <div>
           <label htmlFor="Username">

@@ -6,11 +6,14 @@ Rails.application.routes.draw do
   root 'homepage#index'
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:index, :create, :new, :show, :update, :destroy] do
-        resources :events, only: [:show, :create, :new, :update, :destroy]
+      resources :users, only: [:create, :new, :update, :destroy, :login, :logout, :logged_in] do
+        post 'login', :on => :collection
+        delete 'logout', :on => :collection
+        get 'logged_in', :on => :collection
+        get 'user_exists', :on => :collection
+        resources :events, only: [:show, :create, :new, :update, :destroy, :user_exists] do
+        end
       end
-    end
-  end  
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    end  
+  end
 end
