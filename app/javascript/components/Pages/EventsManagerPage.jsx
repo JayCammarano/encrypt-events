@@ -4,7 +4,7 @@ import ViewWindow from "../EventsManager/ViewWindow";
 import { Redirect } from "react-router-dom";
 
 const EventsManagerPage = ({ userObject }) => {
-  const [whichTab, setWhichTab] = useState("create");
+  const [whichTab, setWhichTab] = useState("my_events");
   if (userObject.username === "NOT_LOGGED_IN") {
     return <Redirect to="/" />;
   }

@@ -10,9 +10,8 @@ export const generateKey = () => encodeBase64(secretbox.keyLength);
 
 export const encrypt = (json, key) => {
   const keyUint8Array = decodeBase64(key);
-
   const nonce = newNonce();
-  const messageUint8 = decodeUTF8(JSON.stringify(json));
+  const messageUint8 = encodeUTF8(JSON.stringify(json));
   const box = secretbox(messageUint8, nonce, keyUint8Array);
 
   const fullMessage = new Uint8Array(nonce.length + box.length);
@@ -41,9 +40,3 @@ export const decrypt = (messageWithNonce, key) => {
   const base64DecryptedMessage = encodeUTF8(decrypted);
   return JSON.parse(base64DecryptedMessage);
 };
-
-const key = generateKey();
-const obj = { hello: "world" };
-const encrypted = encrypt(obj, key);
-const decrypted = decrypt(encrypted, key);
-console.log(decrypted, obj); // should be shallow equal

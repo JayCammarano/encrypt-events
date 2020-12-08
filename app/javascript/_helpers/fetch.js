@@ -35,28 +35,15 @@ export const checkUserExists = async (invitee) => {
   return response.json();
 };
 
-export const newEvent = (event, user_id, setter) => {
-  fetch(`/api/v1/users/${user_id}/events/new`, {
+export const newEvent = async (event, user_id, invitees) => {
+  const response = await fetch(`/api/v1/users/${user_id}/events`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ event }),
-  })
-    .then((response) => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-        throw error;
-      }
-    })
-    .then((response) => response.json())
-    .then((body) => {
-      setter(body);
-    })
-    .catch((error) => setter(`Error: ${error.message}`));
+    body: JSON.stringify({ encrypted_event: event, invitees: invitees }),
+  });
+  return response.json();
 };
 
 export const userEvents = () => {};

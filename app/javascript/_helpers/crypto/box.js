@@ -3,6 +3,7 @@ import {
   encode as encodeBase64,
   decode as decodeBase64,
 } from "@stablelib/base64";
+import { decode as decodeUTF8, encode as encodeUTF8 } from "@stablelib/utf8";
 
 const newNonce = () => randomBytes(box.nonceLength);
 

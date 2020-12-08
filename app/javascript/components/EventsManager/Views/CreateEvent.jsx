@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Datetime from "react-datetime";
 import moment from "moment";
-import { encrypt } from "../../../_helpers/crypto/box";
+import { encrypt } from "../../../_helpers/crypto/secretbox";
 import { newEvent, checkUserExists } from "../../../_helpers/Fetch";
+import { Redirect } from "react-router-dom";
 
 const CreateEvent = ({ user }) => {
   const [input, setInput] = useState({
@@ -19,18 +20,26 @@ const CreateEvent = ({ user }) => {
   let displayErrors;
   let displayInvitedUsers = `Invited users: ${input.invites.join(", ")}`;
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault;
+  const onSubmitHandler = async (e) => {
     const stringDate = convertDateTime();
     const eventJson = { ...input, datetime: stringDate };
-    encryptedEvent = encrypt(eventJson, user.private_key);
-    newEvent(encryptedEvent, user.user_id);
+    const encryptedEvent = encrypt(eventJson, user.private_key);
+    const response = await newEvent(encryptedEvent, user.id, input.invites);
+    handleResponse(response);
+  };
+  const handleResponse = (response) => {
+    if (response.status === "created") {
+      <Redirect to="/user_profile" whichTab="my_events" />;
+    } else {
+      console.log("errors" + response);
+      displayErrors = response.errors;
+    }
   };
   const handleChange = (e) => {
     setInput({ ...input, [e.currentTarget.id]: e.currentTarget.value });
   };
   const handleDateChange = (e) => {
-    setInput({ ...input, datetime: e.currentTarget });
+    setInput({ ...input, datetime: e });
   };
   const handleInvites = async (e) => {
     const invites = input.invites;
