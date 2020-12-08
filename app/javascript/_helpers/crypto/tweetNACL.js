@@ -1,5 +1,5 @@
 import { box, randomBytes } from "tweetnacl";
-
+import uft8 from "@stablelib/utf8";
 const newNonce = () => randomBytes(box.nonceLength);
 
 export const generateKeyPair = () => box.keyPair();

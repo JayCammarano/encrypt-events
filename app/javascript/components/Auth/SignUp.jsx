@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { box } from "tweetnacl";
 import { Redirect } from "react-router-dom";
 
-import { newUser } from "../../_helpers/fetch";
+import { newUser } from "../../_helpers/Fetch";
 import ResponseDisplay from "../../_helpers/ResponseDisplay";
 import { generateKeyPair } from "../../_helpers/crypto/tweetNACL";
 

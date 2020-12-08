@@ -3,12 +3,12 @@ class Api::V1::UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id 
+
       render json: {
         status: :created,
         user: {user_id: user.id,
           username: user.username,
-          public_key: user.public_key,
-          private_key: user.private_key,
+          private_key: user.private_key
         }
       }
     else
@@ -24,7 +24,10 @@ class Api::V1::UsersController < ApplicationController
     if @current_user
       render json: {
         logged_in: true,
-        user: @current_user
+        user: {user_id: @current_user.id,
+          username: @current_user.username,
+          private_key: @current_user.private_key
+        }
       }
     else
       render json: {
@@ -70,9 +73,9 @@ class Api::V1::UsersController < ApplicationController
     if user
     render json: {
       status: "exists",
-      user: {user_id: @user.id,
-        username: @user.username,
-        public_key: @user.public_key,
+      user: {user_id: user.id,
+        username: user.username,
+        public_key: user.public_key,
       },
     }
   else
