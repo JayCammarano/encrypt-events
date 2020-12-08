@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
       session[:user_id] = user.id 
       render json: {
         status: :created,
-        user: {user_id: user.id
+        user: {user_id: user.id,
           username: user.username,
           public_key: user.public_key,
           private_key: user.private_key,
@@ -66,8 +66,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_exists
-    @user = User.where(username: params[:username]).first
-    if @user
+    user = User.where(username: params[:username]).first
+    if user
     render json: {
       status: "exists",
       user: {user_id: @user.id,
