@@ -10,10 +10,11 @@ Rails.application.routes.draw do
         post 'login', :on => :collection
         delete 'logout', :on => :collection
         get 'logged_in', :on => :collection
-        resources :events, only: [:show, :create, :new, :update, :destroy]
-      end
-    end
-  end  
+        get 'user_exists', :on => :collection
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+        resources :events, only: [:show, :create, :new, :update, :destroy, :user_exists] do
+        end
+      end
+    end  
+  end
 end

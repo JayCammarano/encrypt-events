@@ -38,7 +38,11 @@ export class Index extends Component {
         ) {
           this.setState({
             loggedInStatus: "NOT_LOGGED_IN",
-            user: {},
+            user: {
+              username: "NOT_LOGGED_IN",
+              public_key: "NOT_LOGGED_IN",
+              private_key: "NOT_LOGGED_IN",
+            },
           });
         }
       })
@@ -98,8 +102,7 @@ export class Index extends Component {
               render={(props) => (
                 <EventsManagerPage
                   {...props}
-                  handleLogin={this.handleLogin}
-                  handleLogout={this.handleLogout}
+                  userObject={this.state.user}
                   loggedInStatus={this.state.loggedInStatus}
                 />
               )}

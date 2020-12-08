@@ -78,5 +78,4 @@ gem 'jwt'
 gem 'cancancan'
 gem 'bcrypt', '~> 3.1', '>= 3.1.15'
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
-gem 'active_model_serializers', '~> 0.10.0' 
-gem 'dotenv-rails', group: [:development, :test]
+gem 'active_model_serializers', '~> 0.10.0'

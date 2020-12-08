@@ -5,14 +5,18 @@ class Api::V1::UsersController < ApplicationController
       session[:user_id] = user.id 
       render json: {
         status: :created,
-        user: user
+        user: {user_id: user.id
+          username: user.username,
+          public_key: user.public_key,
+          private_key: user.private_key,
+        }
       }
     else
-      error = {
+      error_object = {
       error: user.errors.full_messages,
       status: 400
     }
-    render :json => error, :status => :bad_request
+    render :json => error_object
     end
   end
 
@@ -42,7 +46,6 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-
   def logout
     reset_session
     render json: { status: 200, logged_in: false }
@@ -60,9 +63,28 @@ class Api::V1::UsersController < ApplicationController
       render :json => error, :status => :bad_request
       return
      end
-
   end
-  
+
+  def user_exists
+    @user = User.where(username: params[:username]).first
+    if @user
+    render json: {
+      status: "exists",
+      user: {user_id: @user.id,
+        username: @user.username,
+        public_key: @user.public_key,
+      },
+    }
+  else
+    error = {
+      error: "User not found",
+      status: 400
+    }
+    render :json => error
+   end
+end
+
+
   private
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation, :public_key, :private_key)
