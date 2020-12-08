@@ -16,7 +16,7 @@ const SignUp = () => {
   });
   const [response, setResponse] = useState({});
 
-  const keyPair = box.keyPair();
+  const keyPair = generateKeyPair();
   useEffect(() => {
     setInput({
       ...input,
