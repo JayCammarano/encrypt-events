@@ -73,14 +73,11 @@ class Api::V1::UsersController < ApplicationController
     if user
     render json: {
       status: "exists",
-      user: {user_id: user.id,
-        username: user.username,
-        public_key: user.public_key,
-      },
-    }
+      user: user.username
+      }
   else
     error = {
-      error: "User not found",
+      error: "User #{params[:username]} not found",
       status: 400
     }
     render :json => error

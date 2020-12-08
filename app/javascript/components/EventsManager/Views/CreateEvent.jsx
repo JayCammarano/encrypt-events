@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Datetime from "react-datetime";
 import moment from "moment";
 import { encrypt } from "../../../_helpers/crypto/box";
-import { newEvent } from "../../../_helpers/Fetch";
+import { newEvent, checkUserExists } from "../../../_helpers/Fetch";
 
 const CreateEvent = ({ user }) => {
   const [input, setInput] = useState({
@@ -16,6 +16,8 @@ const CreateEvent = ({ user }) => {
     const stringDate = input.datetime._d;
     return stringDate;
   };
+  let displayErrors;
+  let displayInvitedUsers = `Invited users: ${input.invites.join(", ")}`;
 
   const onSubmitHandler = (e) => {
     e.preventDefault;
@@ -30,15 +32,24 @@ const CreateEvent = ({ user }) => {
   const handleDateChange = (e) => {
     setInput({ ...input, datetime: e.currentTarget });
   };
-  const handleInvites = (e) => {
-    let invites = input.invites;
+  const handleInvites = async (e) => {
+    const invites = input.invites;
     if (e.key === "Enter" && !input.invites.includes(e.currentTarget.value)) {
-      invites.push(e.currentTarget.value);
-
-      setInput({
-        ...input,
-        invites,
-      });
+      try {
+        const invitee = await checkUserExists(e.currentTarget.value);
+        console.log(invitee);
+        if (invitee.status === "exists") {
+          invites.push(invitee.user);
+          setInput({
+            ...input,
+            invites,
+          });
+        } else {
+          displayErrors = `${err}`;
+        }
+      } catch (err) {
+        displayErrors = `${err}`;
+      }
     }
   };
 
@@ -47,15 +58,13 @@ const CreateEvent = ({ user }) => {
     return current.isAfter(yesterday);
   };
 
-  let displayInvitedUsers = `Invited users: ${input.invites.join(", ")}`;
-
   return (
     <div>
-      <h1 className="mb-4 text-3xl font-medium leading-tight text-gray-900 title-font sm:text-4xl">
+      <h1 className="mb-4 ml-8 text-3xl font-medium leading-tight text-gray-900 title-font sm:text-4xl">
         Create Event
       </h1>
-
-      <form>
+      {displayErrors}
+      <form className="text-center flex-full">
         <div>
           <label htmlFor="Title">
             <input
@@ -114,7 +123,7 @@ const CreateEvent = ({ user }) => {
           {displayInvitedUsers}
         </div>
         <button
-          className="px-2 py-2 ml-4 text-xs text-white bg-black border-0 rounded focus:outline-black hover:bg-white hover:border-black hover:text-black hover:outline-back"
+          className="px-2 py-2 ml-8 text-xs text-white bg-black border-0 rounded focus:outline-black hover:bg-white hover:border-black hover:text-black hover:outline-back"
           type="button"
           onClick={onSubmitHandler}
         >
