@@ -21,3 +21,5 @@ export const newUser = (user, setter) => {
     })
     .catch((error) => setter(`Error: ${error.message}`));
 };
+
+export const userEvents = () => {};

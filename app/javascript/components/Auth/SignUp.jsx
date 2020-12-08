@@ -1,18 +1,32 @@
 import React, { useState, useEffect } from "react";
+import { box } from "tweetnacl";
 import { Redirect } from "react-router-dom";
+
 import { newUser } from "../../_helpers/fetch";
 import ResponseDisplay from "../../_helpers/ResponseDisplay";
+import { generateKeyPair } from "../../_helpers/crypto/tweetNACL";
 
 const SignUp = () => {
   const [input, setInput] = useState({
     username: "",
     password: "",
     password_confirmation: "",
+    public_key: "",
+    private_key: "",
   });
   const [response, setResponse] = useState({});
 
-  const onSubmitHandler = () => {
+  const keyPair = box.keyPair();
+  useEffect(() => {
+    setInput({
+      ...input,
+      ["public_key"]: keyPair.publicKey.join(),
+      ["private_key"]: keyPair.publicKey.join(),
+    });
+  }, []);
+  const onSubmitHandler = (e) => {
     newUser(input, setResponse);
+    e.preventDefault;
   };
 
   let displayResponse;
