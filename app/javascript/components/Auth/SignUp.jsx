@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { box } from "tweetnacl";
 import { Redirect } from "react-router-dom";
 
 import { newUser } from "../../_helpers/Fetch";
-import ResponseDisplay from "../../_helpers/ResponseDisplay";
-import { generateKeyPair } from "../../_helpers/crypto/tweetNACL";
+import { generateKeyPair } from "../../_helpers/crypto/box";
 
 const SignUp = ({ loggedInStatus }) => {
   const [input, setInput] = useState({
@@ -16,14 +14,15 @@ const SignUp = ({ loggedInStatus }) => {
   });
   const [response, setResponse] = useState({ status: "000" });
 
-  const keyPair = generateKeyPair();
-  // base64 the keys
   useEffect(() => {
+    const keyPair = generateKeyPair();
     setInput({
       ...input,
-      ["public_key"]: keyPair.publicKey,
-      ["private_key"]: keyPair.secretKey,
+      ["public_key"]: keyPair.public_key,
+      ["private_key"]: keyPair.private_key,
     });
+    console.log(keyPair);
+    return keyPair;
   }, []);
   const onSubmitHandler = (e) => {
     e.preventDefault;

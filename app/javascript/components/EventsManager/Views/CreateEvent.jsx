@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Datetime from "react-datetime";
 import moment from "moment";
-import { eventEncryption } from "../../../_helpers/crypto/eventEncryption";
+import { encrypt } from "../../../_helpers/crypto/box";
+import { newEvent } from "../../../_helpers/Fetch";
 
 const CreateEvent = ({ user }) => {
   const [input, setInput] = useState({
@@ -19,8 +20,9 @@ const CreateEvent = ({ user }) => {
   const onSubmitHandler = (e) => {
     e.preventDefault;
     const stringDate = convertDateTime();
-    const eventObject = { ...input, datetime: stringDate };
-    encryptEvent(eventObject, user.user_id, user.private_key);
+    const eventJson = { ...input, datetime: stringDate };
+    encryptedEvent = encrypt(eventJson, user.private_key);
+    newEvent(encryptedEvent, user.user_id);
   };
   const handleChange = (e) => {
     setInput({ ...input, [e.currentTarget.id]: e.currentTarget.value });

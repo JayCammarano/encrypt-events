@@ -1,8 +1,13 @@
 import { box, randomBytes } from "tweetnacl";
+import {
+  encode as encodeBase64,
+  decode as decodeBase64,
+} from "@stablelib/base64";
+
 const newNonce = () => randomBytes(box.nonceLength);
 
 export const generateKeyPair = () => {
-  box.keyPair();
+  const keyPair = box.keyPair();
   return {
     ["public_key"]: encodeBase64(keyPair.publicKey),
     ["private_key"]: encodeBase64(keyPair.secretKey),
