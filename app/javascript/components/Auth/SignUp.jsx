@@ -17,11 +17,12 @@ const SignUp = ({ loggedInStatus }) => {
   const [response, setResponse] = useState({ status: "000" });
 
   const keyPair = generateKeyPair();
+  // base64 the keys
   useEffect(() => {
     setInput({
       ...input,
-      ["public_key"]: keyPair.publicKey.join(),
-      ["private_key"]: keyPair.secretKey.join(),
+      ["public_key"]: keyPair.publicKey,
+      ["private_key"]: keyPair.secretKey,
     });
   }, []);
   const onSubmitHandler = (e) => {

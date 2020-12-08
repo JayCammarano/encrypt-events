@@ -1,9 +1,13 @@
 import { box, randomBytes } from "tweetnacl";
-import uft8 from "@stablelib/utf8";
 const newNonce = () => randomBytes(box.nonceLength);
 
-export const generateKeyPair = () => box.keyPair();
-
+export const generateKeyPair = () => {
+  box.keyPair();
+  return {
+    ["public_key"]: encodeBase64(keyPair.publicKey),
+    ["private_key"]: encodeBase64(keyPair.secretKey),
+  };
+};
 export const encrypt = (secretOrSharedKey, json, key) => {
   const nonce = newNonce();
   const messageUint8 = decodeUTF8(JSON.stringify(json));
